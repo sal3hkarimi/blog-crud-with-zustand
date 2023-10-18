@@ -22,6 +22,26 @@ const Navbar = () => {
         <div className="navbar-center">
           <h3 className="font-bold text-xl">Blog with zustand</h3>
         </div>
+        <div className="navbar-end">
+          <Link
+            to="/add-post"
+            className="bg-neutral-content hover:bg-slate-200 border-none btn btn-square"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-6 w-6 lucide lucide-plus"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M5 12h14" />
+              <path d="M12 5v14" />
+            </svg>
+          </Link>
+        </div>
       </div>
     </div>
   );

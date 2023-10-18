@@ -1,34 +1,43 @@
 {
   "posts": [
     {
-      "id": 1,
-      "title": "title post 1",
-      "body": "content post 1",
+      "id": "lnv5bx5rhwmhzmicawr",
+      "title": "Immer middleware",
+      "body": "The Immer middleware enables you to use immutable state in a more convenient way. ",
+      "author": "2",
       "cover": "https://picsum.photos/200/200"
     },
     {
-      "id": 2,
-      "title": "title post 2",
-      "body": "content post 2",
+      "id": "lnv5k6xzodtygu1cvr",
+      "title": "Installation",
+      "body": "In order to use the Immer middleware in Zustand, you will need to install Immer as a direct dependency.",
+      "author": "4",
       "cover": "https://picsum.photos/200/200"
     },
     {
-      "id": 3,
-      "title": "title post 3",
-      "body": "content post 3",
-      "cover": "https://picsum.photos/200/200"
-    },
-    {
-      "id": 4,
-      "title": "title post 4",
-      "body": "content post 4",
+      "id": "lnvkafwcqg8pttbmv3",
+      "title": "New Post Azim",
+      "body": "this is new post from azim karimi",
+      "author": "3",
       "cover": "https://picsum.photos/200/200"
     }
   ],
   "users": [
-    { "id": 1, "fullName": "Ali Ahmadi" },
-    { "id": 2, "fullName": "Mohammad Kazemi" },
-    { "id": 3, "fullName": "Hashem Vhaedi" },
-    { "id": 4, "fullName": "Vahid Shojaei" }
+    {
+      "id": 1,
+      "fullName": "Ali Ahmadi"
+    },
+    {
+      "id": 2,
+      "fullName": "Mohammad Kazemi"
+    },
+    {
+      "id": 3,
+      "fullName": "Hashem Vhaedi"
+    },
+    {
+      "id": 4,
+      "fullName": "Vahid Shojaei"
+    }
   ]
 }
