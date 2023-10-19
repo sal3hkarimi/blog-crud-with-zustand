@@ -1,24 +1,10 @@
 {
   "posts": [
     {
-      "id": "lnv5bx5rhwmhzmicawr",
-      "title": "Immer middleware",
-      "body": "The Immer middleware enables you to use immutable state in a more convenient way. ",
-      "author": "2",
-      "cover": "https://picsum.photos/200/200"
-    },
-    {
-      "id": "lnv5k6xzodtygu1cvr",
-      "title": "Installation",
-      "body": "In order to use the Immer middleware in Zustand, you will need to install Immer as a direct dependency.",
-      "author": "4",
-      "cover": "https://picsum.photos/200/200"
-    },
-    {
-      "id": "lnvkafwcqg8pttbmv3",
-      "title": "New Post Azim",
-      "body": "this is new post from azim karimi",
-      "author": "3",
+      "id": "lnxqincpv0sxaz96lh",
+      "title": "post 1",
+      "body": "post 1 content",
+      "author": "1",
       "cover": "https://picsum.photos/200/200"
     }
   ],

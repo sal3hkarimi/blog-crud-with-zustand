@@ -1,16 +1,19 @@
+import { useNavigate } from "react-router-dom";
 import { postsStore } from "../../store/postsStore";
 import getPosts from "./getPosts";
 
 const SinglePost = ({ postId }) => {
   const post = postsStore((state) => state.posts.byId[postId]);
   const deletePost = postsStore((state) => state.deletePost);
+  const navigate = useNavigate();
 
   const removePost = async () => {
     const response = await deletePost(postId);
     if (response.statusText === "OK") {
-      return window.location.reload();
+      return navigate(0);
     }
   };
+
 
   return (
     <div className="card lg:card-side bg-base-100 shadow-xl mb-5">
@@ -24,7 +27,7 @@ const SinglePost = ({ postId }) => {
           <div className="action-api">
             <button
               onClick={removePost}
-              className="bg-red-500 hover:bg-red-600 border-none btn btn-square mr-2"
+              className="bg-red-500 hover:bg-red-400 border-none btn btn-square mr-2"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -45,11 +48,22 @@ const SinglePost = ({ postId }) => {
                 <line x1="14" x2="14" y1="11" y2="17" />
               </svg>
             </button>
-            <button
-              onClick={removePost}
-              className="bg-lime-500 hover:bg-red-600 border-none btn btn-square"
-            >
-              
+            <button className="bg-yellow-500 hover:bg-yellow-400 border-none btn btn-square">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="lucide lucide-pencil text-white"
+              >
+                <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />
+                <path d="m15 5 4 4" />
+              </svg>
             </button>
           </div>
           <div className="view-sec">
