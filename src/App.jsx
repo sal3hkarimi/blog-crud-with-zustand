@@ -11,6 +11,7 @@ function App() {
         <Routes>
           <Route path="/posts" element={<PostList />} />
           <Route path="/add-post" element={<AddPost />} />
+          <Route path="/edit-post/:id" element={<AddPost />} />
         </Routes>
       </Layout>
     </>

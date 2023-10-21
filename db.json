@@ -2,9 +2,16 @@
   "posts": [
     {
       "id": "lnxqincpv0sxaz96lh",
-      "title": "post 1",
+      "title": "first Post",
       "body": "post 1 content",
       "author": "1",
+      "cover": "https://picsum.photos/200/200"
+    },
+    {
+      "id": "lnxswmiv2r9wneyazqw",
+      "title": "asdfasdfsdfg",
+      "body": "asdf",
+      "author": "2",
       "cover": "https://picsum.photos/200/200"
     }
   ],

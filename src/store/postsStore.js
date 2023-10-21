@@ -2,13 +2,6 @@ import axios from "axios";
 import { create } from "zustand";
 import { immer } from "zustand/middleware/immer";
 
-function uuid() {
-  const val1 = Date.now().toString(36);
-  const val2 = Math.random().toString(36).substr(2);
-
-  return val1 + val2;
-}
-
 export const postsStore = create(
   immer((set, get) => ({
     // init posts
@@ -44,7 +37,42 @@ export const postsStore = create(
       const response = await axios.delete(
         `http://localhost:5000/posts/${postId}`
       );
+      set((state) => {
+        removeFromArray(state.posts.allIds, postId);
+        delete state.posts.byId[postId];
+      });
+      return response;
+    },
+
+    updatePost: async (postId, updatePostData) => {
+      const updateData = {
+        id: postId,
+        ...updatePostData,
+        cover: "https://picsum.photos/200/200",
+      };
+      const response = await axios.put(
+        `http://localhost:5000/posts/${postId}`,
+        updateData
+      );
+      set((state) => {
+        state.posts.byId[postId] = updateData;
+      });
       return response;
     },
   }))
 );
+
+function removeFromArray(array, item) {
+  const index = array.indexOf(item);
+  if (index > -1) {
+    array.splice(index, 1);
+  }
+  return array;
+}
+
+function uuid() {
+  const val1 = Date.now().toString(36);
+  const val2 = Math.random().toString(36).substr(2);
+
+  return val1 + val2;
+}

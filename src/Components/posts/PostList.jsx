@@ -1,19 +1,17 @@
 import { useNavigate } from "react-router-dom";
 import { postsStore } from "../../store/postsStore";
-import getPosts from "./getPosts";
+import { useEffect } from "react";
 
 const SinglePost = ({ postId }) => {
   const post = postsStore((state) => state.posts.byId[postId]);
   const deletePost = postsStore((state) => state.deletePost);
   const navigate = useNavigate();
 
-  const removePost = async () => {
-    const response = await deletePost(postId);
-    if (response.statusText === "OK") {
-      return navigate(0);
-    }
-  };
+  const removePost = async () => await deletePost(postId);
 
+  const updatePost = () => {
+    return navigate(`/edit-post/${postId}`);
+  };
 
   return (
     <div className="card lg:card-side bg-base-100 shadow-xl mb-5">
@@ -48,7 +46,10 @@ const SinglePost = ({ postId }) => {
                 <line x1="14" x2="14" y1="11" y2="17" />
               </svg>
             </button>
-            <button className="bg-yellow-500 hover:bg-yellow-400 border-none btn btn-square">
+            <button
+              onClick={updatePost}
+              className="bg-yellow-500 hover:bg-yellow-400 border-none btn btn-square"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -77,12 +78,18 @@ const SinglePost = ({ postId }) => {
 
 export default function PostList() {
   const posts = postsStore((state) => state.posts);
+  const getPosts = postsStore((state) => state.getApi);
 
   const postsEl = posts.allIds.map((postId, idx) => (
     <SinglePost postId={postId} key={idx} />
   ));
 
-  getPosts();
+  useEffect(() => {
+    if (!posts.allIds.length) {
+      getPosts();
+    }
+    console.log(posts);
+  }, [posts]);
 
   return <div className="post-list">{postsEl}</div>;
 }
